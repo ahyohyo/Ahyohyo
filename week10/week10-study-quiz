@@ -1,0 +1,46 @@
+1. 이번 시간에 구현한 할 일 관리 앱의 기능 3가지는 CRUD에서 Read, Update, Delete 이다.
+
+2. 리액트에서 배열 데이터를 렌더링할 때 주로 사용하는 배열 메서드로, HTML 또는 컴포넌트를 순회하며 매 요소를 반복하여 렌더링할 수 있는 메서드의 이름은 map이다.
+
+3. 다음 경고 메시지에서 빈칸에 들어갈 단어는 무엇인가? " Each child in a list should have a unique key prop. "
+
+4. key는 리스트에서 각각의 컴포넌트를 구분하기 위해 사용하는 값으로, 어떤 컴포넌트를 업데이트할 지 결정할 때 사용되었다.
+
+5. 체크박스에 체크 표시하는 것을 한 글자로 틱 이라고 한다.
+
+6. 체크박스를 틱 했을 때, 개발자 도구의 Components 탭을 확인하면 TodoItem 컴포넌트에서 해당 아이템의 isDone 프로퍼티는 ture으로 변경된다.
+
+7. 실습 과정에서 <삭제> 버튼을 클릭하면 호출되는 함수로, 함수 onDelete를 호출하고 인수로 해당 아이템의 id를 전달하는 함수의 이름은 onClickDelete로 설정하였다.
+
+코드 작성 문제
+
+1. map 메서드의 콜백함수가 TodoItem 컴포넌트를 반환하고 TodoItem 컴포넌트에 현재 순회 중인 배열 요소 it의 모든 프로퍼티를 스프레드 연산자를 이용해 
+Props로 전달하는 코드를 2줄로 간단하게 나타내시오. (map을 이용해 컴포넌트 반복하기)
+
+{todo.map((it) => (
+          <TodoItem {...it} />  ))}
+
+
+2. App 컴포넌트에서 할 일을 삭제하는 함수 onDelete를 만들려고 한다. 다음 코드에서 빈 부분을 완성하시오. (src/App.js)
+
+import "./App.css";
+import { useState, useRef } from "react";
+
+import Header from "./component/Header";
+import TodoEditor from "./component/TodoEditor";
+import TodoList from "./component/TodoList";
+function App() {
+  (...)
+  const onDelete = (targetId) => { 
+    setTodo(todo.filter((it) => it.id !== targetId));
+  };
+  return (
+    <div className="App">
+      <Header />
+      <TodoEditor onCreate={onCreate} />
+      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} /> 
+    </div>
+  );
+}
+export default App;
+
