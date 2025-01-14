@@ -1,0 +1,19 @@
+<횡단 관심사 코드의 중복 문제를 해결하는 고차 컴포넌트의 예>
+
+function withLifecycleLogging(WrappedComponent) {
+  return (props) => {
+    // Mount와 Unmount 로그
+    useEffect(() => {
+      console.log("Mount!");
+      return () => console.log("Unmount!");
+    }, []);
+
+    // Update 로그
+    useEffect(() => {
+      console.log("Update!");
+    });
+
+    // 래핑된 컴포넌트 렌더링
+    return <WrappedComponent {...props} />;
+  };
+}

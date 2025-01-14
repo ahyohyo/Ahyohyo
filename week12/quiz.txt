@@ -1,0 +1,25 @@
+1. Context를 생성하고 Provider를 제공하는 코드 빈칸 채우기
+
+const TodoContext = createContext();
+
+return (
+  <TodoContext.Provider value={{ todos, addTodo, toggleTodo, deleteTodo }}>
+    {children}
+  </TodoContext.Provider>
+);
+
+2.  MemoContext.Provider를 생성하고 MemoEditor에 전체 메모의 개수(memo.length), 
+중요표시한 메모의 개수(importantMemos), 완료된 메모의 개수(finishedMemos) Context를 생성하는 코드 작성
+
+  return (
+    <MemoContext.Provider>
+      <div className="App">
+
+        <MemoEditor onCreate={onCreate} />
+        <div>전체 메모 개수 : {memo.length}</div>
+        <div>중요표시한 메모의 개수 : {importantMemo}</div>
+        <div>완료된 메모의 개수 : {finishedMemo}</div>
+
+      </div>
+    </MemoContext.Provider>
+  );
